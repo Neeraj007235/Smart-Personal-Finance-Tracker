@@ -37,6 +37,8 @@ const TransactionList = ({ transactions, onEdit, onDelete }) => {
 
   return (
     <div className="space-y-4">
+      {/* Heading */}
+      <h2 className="text-xl font-semibold">All Transactions</h2>
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-1">
@@ -92,9 +94,8 @@ const TransactionList = ({ transactions, onEdit, onDelete }) => {
               <div className="flex items-center justify-between mb-1">
                 <h3 className="font-medium">{transaction.description}</h3>
                 <span
-                  className={`font-semibold text-lg ${
-                    transaction.type === 'expense' ? 'text-red-600' : 'text-green-600'
-                  }`}
+                  className={`font-semibold text-lg ${transaction.type === 'expense' ? 'text-red-600' : 'text-green-600'
+                    }`}
                 >
                   {transaction.type === 'expense' ? '-' : '+'}${Math.abs(transaction.amount).toFixed(2)}
                 </span>
@@ -103,11 +104,10 @@ const TransactionList = ({ transactions, onEdit, onDelete }) => {
                 <span className="px-2 py-1 bg-muted rounded-md">{transaction.category}</span>
                 <span>{new Date(transaction.date).toLocaleDateString()}</span>
                 <span
-                  className={`px-2 py-1 rounded-md ${
-                    transaction.type === 'expense'
+                  className={`px-2 py-1 rounded-md ${transaction.type === 'expense'
                       ? 'bg-red-100 text-red-700'
                       : 'bg-green-100 text-green-700'
-                  }`}
+                    }`}
                 >
                   {transaction.type}
                 </span>
